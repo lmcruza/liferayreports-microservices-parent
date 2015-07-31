@@ -1,0 +1,16 @@
+hystrix:
+  image: liferayreports/hystrix-dashboard
+  ports:
+   - "7979:7979"
+  links:
+   - discovery
+discovery:
+  image: liferayreports/service-discovery
+  ports:
+   - "8761:8761"
+producer:
+  image: liferayreports/producer-microservice
+  ports:
+   - "9000:9000"
+  links:
+   - discovery

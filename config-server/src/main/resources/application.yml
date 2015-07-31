@@ -1,0 +1,17 @@
+---
+server:
+  port: 8888
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port:8888}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lmcruza/liferayreports-microservices-config
