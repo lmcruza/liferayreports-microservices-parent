@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.cgi.liferayreports</groupId>
-	<artifactId>liferay-reports-parent</artifactId>
+	<artifactId>liferayreports-microservices-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -20,11 +20,6 @@
 
 	<modules>
 		<module>config-server</module>
-		<!--
-		<module>discovery-server</module>
-		<module>producer-microservice</module>
-		<module>hystrix-dashboard</module>
-		-->
 	</modules>
 
 	<properties>

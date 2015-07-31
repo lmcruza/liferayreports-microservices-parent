@@ -1,16 +1,11 @@
-hystrix:
-  image: liferayreports/hystrix-dashboard
-  ports:
-   - "7979:7979"
+configserver:
+  image: "config-server:0.0.1-SNAPSHOT"
+  hostname: configserver
+  name: configserver
   links:
-   - discovery
-discovery:
-  image: liferayreports/service-discovery
+    - eurekaserver
+  environment:
+     EUREKA_HOST: eurekaserver
+     EUREKA_PORT: 8761
   ports:
-   - "8761:8761"
-producer:
-  image: liferayreports/producer-microservice
-  ports:
-   - "9000:9000"
-  links:
-   - discovery
+    - "8888:8888"

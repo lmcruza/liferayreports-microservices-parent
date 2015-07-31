@@ -7,7 +7,7 @@
 
 	<parent>
 		<groupId>com.cgi.liferayreports</groupId>
-		<artifactId>liferay-reports-parent</artifactId>
+		<artifactId>liferayreports-microservices-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
