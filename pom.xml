@@ -19,7 +19,11 @@
 	</parent>
 
 	<modules>
+		<module>discovery-server</module>
 		<module>config-server</module>
+		<module>mongostore-microservice</module>
+		<module>producer-microservice</module>
+		<module>monitoring-dashboard</module>
 	</modules>
 
 	<properties>

@@ -1,0 +1,64 @@
+discovery:
+  image: "discovery-server:0.0.1-SNAPSHOT"
+  hostname: discovery
+  name: discovery-server
+  ports:
+   - "8761:8761"
+
+configserver:
+  image: "config-server:0.0.1-SNAPSHOT"
+  hostname: configserver
+  name: config-server
+  links:
+    - discovery
+  environment:
+     EUREKA_HOST: discovery
+     EUREKA_PORT: 8761
+  ports:
+    - "8888:8888"
+
+mongostore:
+  image: "mongostore-microservice:0.0.1-SNAPSHOT"
+  hostname: mongostore
+  name: mongostore-microservice
+  links:
+    - discovery
+    - configserver
+  environment:
+     EUREKA_HOST: discovery
+     EUREKA_PORT: 8761
+     MONGODB_HOST: 10.0.2.15    # local IP
+     MONGODB_PORT: 27017
+     SPRING_PROFILES_ACTIVE: docker
+  ports:
+    - "9002:9002"
+
+producer:
+  image: "producer-microservice:0.0.1-SNAPSHOT"
+  hostname: producer
+  name: producerº-microservice
+  links:
+    - discovery
+    - configserver
+    - mongostore
+  environment:
+     EUREKA_HOST: discovery
+     EUREKA_PORT: 8761
+     SPRING_PROFILES_ACTIVE: docker
+  ports:
+    - "9000:9000"
+
+monitoring:
+  image: monitoring-dashboard:0.0.1-SNAPSHOT
+  hostname: monitoringdashboard
+  links:
+    - discovery
+    - configserver
+    - mongostore
+    - producer
+  environment:
+     EUREKA_HOST: sampleeureka
+     EUREKA_PORT: 8761
+     SPRING_PROFILES_ACTIVE: docker
+  ports:
+    - "8989:8989"

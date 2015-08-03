@@ -3,13 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>hystrix-dashboard</artifactId>
+	<artifactId>monitoring-dashboard</artifactId>
 
-	<parent>
-		<groupId>com.cgi.liferayreports</groupId>
-		<artifactId>liferayreports-microservices-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+  <parent>
+    <groupId>com.cgi.liferayreports</groupId>
+    <artifactId>liferayreports-microservices-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
 
 	<dependencies>
 		<dependency>
