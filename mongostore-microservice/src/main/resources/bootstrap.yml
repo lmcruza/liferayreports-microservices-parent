@@ -5,7 +5,7 @@ spring:
     config:
       discovery:
         enabled: true
-        serviceId: MONGOSTORE-MICROSERVICE
+        serviceId: CONFIG-SERVER
 
 encrypt:
   failOnError: false

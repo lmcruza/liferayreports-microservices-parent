@@ -5,12 +5,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.data.annotation.Id;
-
 
 
 public class PageView {
-    	@Id
 	private String id;
 	private String applicationId;
 	private String nodeId;
@@ -23,7 +20,7 @@ public class PageView {
 	private List<Parameter> parameters = new ArrayList<Parameter>(10);
 	private Map<String,String> headers;
 	private Object advanced;
-	
+
 	public PageView(String id, String applicationId, String nodeId, Long companyId, Viewer viewer, Page page, List<Parameter> parameters, Object advanced) {
 	    super();
 	    this.id = id;
@@ -34,7 +31,7 @@ public class PageView {
 	    this.page = page;
 	    this.parameters = parameters;
 	}
-	
+
 	public String getId() {
 	    return id;
 	}
@@ -68,7 +65,7 @@ public class PageView {
 	public List<Parameter> getParameters() {
 	    return parameters;
 	}
-	
+
 	public Map<String,String> getHeaders() {
 	    return headers;
 	}
@@ -80,6 +77,6 @@ public class PageView {
 	}
 
 	public PageView() {
-	    
+
 	}
 }

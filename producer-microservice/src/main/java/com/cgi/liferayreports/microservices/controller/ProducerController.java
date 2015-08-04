@@ -1,6 +1,6 @@
 package com.cgi.liferayreports.microservices.controller;
 
-import com.cgi.liferayreports.microservices.PageView;
+import com.cgi.liferayreports.microservices.domain.PageView;
 import com.cgi.liferayreports.microservices.feign.MongostoreClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -2,8 +2,8 @@ package com.cgi.liferayreports.microservices;
 
 
 public class Device {
-    
-    private String brand;
+
+  private String brand;
 	private String browser;
 	private String model;
 	private String os;
@@ -57,7 +57,7 @@ public class Device {
 	public Boolean getTablet() {
 	    return tablet;
 	}
-	
+
 	@SuppressWarnings("unused")
 	private Device(){}
 

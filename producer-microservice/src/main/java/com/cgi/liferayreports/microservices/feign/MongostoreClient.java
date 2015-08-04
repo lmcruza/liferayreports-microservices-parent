@@ -1,6 +1,6 @@
 package com.cgi.liferayreports.microservices.feign;
 
-import com.cgi.liferayreports.microservices.PageView;
+import com.cgi.liferayreports.microservices.domain.PageView;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,5 +14,5 @@ public interface MongostoreClient {
     @RequestMapping(method = RequestMethod.POST, value = "/pageViews",
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    void create(@RequestBody Message message);
+    PageView create(@RequestBody PageView pageView);
 }

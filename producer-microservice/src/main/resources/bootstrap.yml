@@ -1,11 +1,11 @@
 spring:
   application:
-    name: mongostore
+    name: producer
   cloud:
     config:
       discovery:
         enabled: true
-        serviceId: MONGOSTORE-MICROSERVICE
+        serviceId: CONFIG-SERVER
 
 encrypt:
   failOnError: false
