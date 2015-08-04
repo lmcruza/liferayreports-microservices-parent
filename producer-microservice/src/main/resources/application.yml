@@ -9,7 +9,7 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
 
-samplepong:
+mongostore:
   ribbon:
     DeploymentContextBasedVipAddresses: mongostore
     NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList

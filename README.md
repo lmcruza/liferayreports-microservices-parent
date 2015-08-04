@@ -81,3 +81,9 @@ http://producer:9000/report
 
 * Monitoring dashboard
 http://hystrixdashboard:7979/hystrix/monitor?stream=http%3A%2F%2Fproducer%3A9000%2Fhystrix.stream
+
+* API gateway
+** Health
+http://gateway:10000/health.json
+** (http POST)
+http://gateway:10000/producer/report

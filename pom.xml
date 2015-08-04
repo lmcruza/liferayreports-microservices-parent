@@ -24,6 +24,7 @@
 		<module>mongostore-microservice</module>
 		<module>producer-microservice</module>
 		<module>monitoring-dashboard</module>
+		<module>api-gateway</module>
 	</modules>
 
 	<properties>

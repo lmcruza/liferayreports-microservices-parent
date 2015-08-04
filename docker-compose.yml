@@ -62,3 +62,13 @@ monitoring:
      SPRING_PROFILES_ACTIVE: docker
   ports:
     - "7979:7979"
+
+gateway:
+  image: api-gateway:0.0.1-SNAPSHOT
+  ports:
+   - "10000:10000"
+  links:
+   - discovery
+   - configserver
+   - producer
+   - mongostore
