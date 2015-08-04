@@ -50,7 +50,7 @@ producer:
 
 monitoring:
   image: monitoring-dashboard:0.0.1-SNAPSHOT
-  hostname: monitoringdashboard
+  hostname: hystrixdashboard
   links:
     - discovery
     - configserver
@@ -61,4 +61,4 @@ monitoring:
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
-    - "8989:8989"
+    - "7979:7979"

@@ -59,3 +59,25 @@ docker-compose up
 ----
 
 That is it, the endpoint should be available at http://dockerhost:8080
+
+
+
+
+
+
+Testing
+~~~~~~~~~
+* Add to /etc/hosts
+XXX.XXX.XXX.XXX     discovery configserver gateway mongostore producer hystrixdashboard
+
+* Run with docker
+docker-compose up
+
+* Service discovery
+http://discovery:8761
+
+* Reports REST API (http POST)
+http://producer:9000/report
+
+* Monitoring dashboard
+http://hystrixdashboard:7979/hystrix/monitor?stream=http%3A%2F%2Fproducer%3A9000%2Fhystrix.stream
