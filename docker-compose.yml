@@ -65,6 +65,7 @@ monitoring:
 
 gateway:
   image: api-gateway:0.0.1-SNAPSHOT
+  hostname: gateway
   ports:
    - "10000:10000"
   links:
