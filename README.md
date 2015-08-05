@@ -85,5 +85,7 @@ http://hystrixdashboard:7979/hystrix/monitor?stream=http%3A%2F%2Fproducer%3A9000
 * API gateway
 ** Health
 http://gateway:10000/health.json
-** (http POST)
+** (http POST)  (zuulproxy version)
+http://gateway:10000/report
+** (http POST)  (sidecar version)
 http://gateway:10000/producer/report

@@ -10,15 +10,9 @@ endpoints:
     sensitive: false
 
 eureka:
-#  instance:
-#    hostname: gateway
-#    nonSecurePort: ${server.port:10000}
+  instance:
+    hostname: gateway
+    nonSecurePort: ${server.port:10000}
   client:
     serviceUrl:
       defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
-
-zuul:
-  routes:
-    producer:
-      path: /report/**
-      url: http://producer:9000/report
