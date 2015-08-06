@@ -36,7 +36,7 @@ mongostore:
 producer:
   image: "producer-microservice:0.0.1-SNAPSHOT"
   hostname: producer
-  name: producerº-microservice
+  name: producer-microservice
   links:
     - discovery
     - configserver
