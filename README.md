@@ -103,9 +103,10 @@ http://discovery:8761
 http://producer:9000/report
 ----
 
-.Monitoring dashboard
+.Monitoring dashboard (API Gateway / Producer Microservice and API Gateway)
 [source,java]
 ----
+http://hystrixdashboard:7979/hystrix/monitor?stream=http%3A%2F%gateway%3A10000%2Fhystrix.stream
 http://hystrixdashboard:7979/hystrix/monitor?stream=http%3A%2F%2Fproducer%3A9000%2Fhystrix.stream
 ----
 
