@@ -7,37 +7,59 @@ There are two ways to run the entire application:
 * Using Docker
 
 
+DNS Simulation
+~~~~~~~~~~~~~~~~
+.Please edit your hosts file to add this new hostnames:
+[source]
+----
+127.0.0.1       localhost       gateway discovery configserver mongostore producer monitoringdashboard
+----
+~~~~~~~~~~~~~~~~
+
 
 On Local Machine
 ~~~~~~~~~~~~~~~~
-Running it all local is simple, do the following in sequence, in four different terminal windows:
+Running it all local is simple, do the following in sequence, in six different terminal windows:
 
-.Start up Eureka
+.Start up Service Discovery Server
 [source,java]
 ----
-cd sample-eureka
+cd discovery-server
 mvn spring-boot:run
 ----
 
-
-.Start up Config server
+.Start up Config Server
 [source,java]
 ----
-cd sample-config
+cd config-server
 mvn spring-boot:run
 ----
 
-.Start up Pong Service
+.Start up Mongostore Microservice
 [source,java]
 ----
-cd sample-pong
+cd mongostore-microservice
 mvn spring-boot:run
 ----
 
-.Start up Ping Service
+.Start up Producer Microservice
 [source,java]
 ----
-cd sample-ping
+cd producer-microservice
+mvn spring-boot:run
+----
+
+.Start up Monitoring Dashboard 
+[source,java]
+----
+cd monitoring-dashboard
+mvn spring-boot:run
+----
+
+.Start up API Gateway 
+[source,java]
+----
+cd api-gateway
 mvn spring-boot:run
 ----
 ~~~~~~~~~~~~~~~~
@@ -72,13 +94,8 @@ That is it, the endpoint should be available at http://dockerhost:8080
 
 
 
-Testing
+Endpoints
 ~~~~~~~~~
-* Add to /etc/hosts
-XXX.XXX.XXX.XXX     discovery configserver gateway mongostore producer hystrixdashboard
-
-* Run with docker
-docker-compose up
 
 * Service discovery
 http://discovery:8761
@@ -96,3 +113,4 @@ http://gateway:10000/health.json
 http://gateway:10000/report
 ** (http POST)  (sidecar version)
 http://gateway:10000/producer/report
+~~~~~~~~~
