@@ -7,6 +7,7 @@ There are two ways to run the entire application:
 * Using Docker
 
 
+
 DNS Simulation
 ~~~~~~~~~~~~~~~~
 .Please edit your hosts file to add this new hostnames:
@@ -15,6 +16,7 @@ DNS Simulation
 127.0.0.1       localhost       gateway discovery configserver mongostore producer monitoringdashboard
 ----
 ~~~~~~~~~~~~~~~~
+
 
 
 On Local Machine
@@ -64,10 +66,6 @@ mvn spring-boot:run
 ----
 ~~~~~~~~~~~~~~~~
 
-If all the applications have come up cleanly, the endpoint should be available at http://localhost:8080
-
-
-
 
 
 On Docker
@@ -87,30 +85,41 @@ docker-compose up
 ----
 ~~~~~~~~~
 
-That is it, the endpoint should be available at http://dockerhost:8080
-
-
-
-
 
 
 Endpoints
 ~~~~~~~~~
 
+.Service Discovery
+[source,java]
+----
 * Service discovery
 http://discovery:8761
+----
 
-* Reports REST API (http POST)
+.Producer Microservice REST API: (http POST method)
+[source,java]
+----
 http://producer:9000/report
+----
 
-* Monitoring dashboard
+.Monitoring dashboard
+[source,java]
+----
 http://hystrixdashboard:7979/hystrix/monitor?stream=http%3A%2F%2Fproducer%3A9000%2Fhystrix.stream
+----
 
-* API gateway
-** Health
+.API Gateway (zuulproxy version, DEFAULT): health (http GET method) and REST API (http POST method)
+[source,java]
+----
 http://gateway:10000/health.json
-** (http POST)  (zuulproxy version)
 http://gateway:10000/report
-** (http POST)  (sidecar version)
+----
+
+.API Gateway  (sidecar version): health (http GET method) and REST API (http POST method)
+[source,java]
+----
+http://gateway:10000/health.json
 http://gateway:10000/producer/report
+----
 ~~~~~~~~~
