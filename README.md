@@ -8,8 +8,10 @@ There are two ways to run the entire application:
 
 
 
-DNS Simulation
+Requirements
 ~~~~~~~~~~~~~~~~
+.MongoDB installation
+
 .Please edit your hosts file to add this new hostnames:
 [source]
 ----
@@ -51,14 +53,14 @@ cd producer-microservice
 mvn spring-boot:run
 ----
 
-.Start up Monitoring Dashboard 
+.Start up Monitoring Dashboard
 [source,java]
 ----
 cd monitoring-dashboard
 mvn spring-boot:run
 ----
 
-.Start up API Gateway 
+.Start up API Gateway
 [source,java]
 ----
 cd api-gateway
@@ -87,9 +89,26 @@ docker-compose up
 
 
 
+On Local Machine (Minimal)
+~~~~~~~~~~~~~~~~
+.With this minimal configuration there is only one endpoint available (http POST method). There will be error logs due to connection failures but the endpoint will be available.
+[source,java]
+----
+http://localhost:9002/pageViews
+----
+
+.Start up Mongostore Microservice
+[source,java]
+----
+cd mongostore-microservice
+mvn spring-boot:run
+----
+~~~~~~~~~~~~~~~~
+
+
+
 Endpoints
 ~~~~~~~~~
-
 .Service Discovery
 [source,java]
 ----
@@ -123,4 +142,47 @@ http://gateway:10000/report
 http://gateway:10000/health.json
 http://gateway:10000/producer/report
 ----
+~~~~~~~~~
+
+
+
+PageView report JSON example
+~~~~~~~~~
+{
+  "applicationId": "educamadrid",
+  "nodeId": "emportal51",
+  "companyId": "1012345",
+  "viewer": {
+    "userId": "101111",
+    "userEmail": "admin@educamadrid.org",
+    "session": "CB221BCDFB3B198DBFC"
+  },
+  "page": {
+    "pageId": 10211,
+    "pageName": "/home",
+    "portlets": [
+      {
+        "portletId": "48",
+        "portletSetup": {
+
+        }
+      },
+      {
+        "portletId": "content_admin_WAR_scribe",
+        "portletSetup": {
+
+        },
+        "additionalConfig": {
+          "contentId": "1224412121"
+        }
+      },
+      {
+        "portletId": "65",
+        "portletSetup": {
+
+        }
+      }
+    ]
+  }
+}
 ~~~~~~~~~

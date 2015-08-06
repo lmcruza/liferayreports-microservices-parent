@@ -57,19 +57,23 @@ monitoring:
     - mongostore
     - producer
   environment:
-     EUREKA_HOST: sampleeureka
+     EUREKA_HOST: discovery
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
-  ports:
     - "7979:7979"
 
 gateway:
   image: api-gateway:0.0.1-SNAPSHOT
   hostname: gateway
-  ports:
-   - "10000:10000"
   links:
    - discovery
    - configserver
    - producer
    - mongostore
+  environment:
+     EUREKA_HOST: discovery
+     EUREKA_PORT: 8761
+     SPRING_PROFILES_ACTIVE: docker
+  ports:
+   - "10000:10000"
+  ports:
